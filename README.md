@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Schedular-File
 
 Project Name: Schedular
@@ -11,4 +11,3 @@ Team Name:-
 Lecturer: Dr Mohd Razak bin Samingan
 =======
 # Schedular-File
->>>>>>> parent of eef81d6... Update README.md
