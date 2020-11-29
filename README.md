@@ -2,7 +2,7 @@
 
 Project Name: Schedular
 
-![alt text](https://github.com/mhafizkn/Schedular-File/blob/Resource/logo_full.png?raw=true)
+![Schedular Logo](https://github.com/Trio-Macan-Application-Dev/Schedular-File/blob/main/Resource/logo_full.png)
 
 Team Name:-
 - Muhammad Hasan Mubarak
