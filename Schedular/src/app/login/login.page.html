@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Login Schedular</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<!-- Body -->
 <ion-content>
+  <!-- Insert content here -->
+  
+  <form>
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" required></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="success" expand="block">Sign In</ion-button>
+        <a [routerLink]="['/guest']" class="small-text" >Sign as guest</a> <!-- to be reviewed -->
+      </ion-col>
+    </ion-row>
+  </form>
 
 </ion-content>
