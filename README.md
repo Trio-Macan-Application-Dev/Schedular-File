@@ -11,4 +11,4 @@ Team Name:-
 
 Lecturer: Dr Mohd Razak bin Samingan
 
-Latest date commit: 10 December, Thu, 12.40 AM
+Latest commit: 10 December, Thu, 12.40 AM
