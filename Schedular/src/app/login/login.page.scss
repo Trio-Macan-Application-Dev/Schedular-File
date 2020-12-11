@@ -1,4 +1,4 @@
-.custom-font{
+.custom-font{ // Custom font from Google font
     font-family: 'Bebas Neue', cursive;
     font-family: 'Roboto', sans-serif;
 }
@@ -24,7 +24,7 @@ ion-content{
         margin-bottom: 30px;
     }    
 
-    .loginIntro{
+    .loginIntro{ // Schedular logo with intro text
         //padding: 10px 0 5px 0;
         p{
             margin-top:-2px;
@@ -44,21 +44,22 @@ ion-content{
         }
     }
 
-    .formLogin{
-        
-        .in{
-            border: 2px solid #D92353;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            font-weight: bold; 
-        }
-        
+    .formLogin{ // Login form
+                 
         .label{
             margin: -15px 0 0 8px;
             padding: 0 5px 0 5px;
             position: absolute;
             background-color: red;
-            font-size: medium;   
+            font-size: medium;
+            z-index: 1; 
+        }
+
+        .in{
+            border: 2px solid #D92353;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-weight: bold; 
         }
 
         .icon { 
@@ -76,8 +77,8 @@ ion-content{
 
     .guest{
         a{
-            padding: 3px 20px 0 135px;
-            color: #757575;
+            padding: 3px 20px 0 125px;
+            color: black;
             font-weight: bold;
             font-size: 15px;
         }        
