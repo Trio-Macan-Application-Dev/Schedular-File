@@ -16,19 +16,21 @@
 
     <div class="ion-padding">
       
-      <form class="formLogin">
+      <form class="formLogin" method="" action="">
         
         <div class="wrap-input">
-          <ion-item>
-            <ion-label position="stacked">Username</ion-label>
-            <ion-input></ion-input>
+          <ion-label class="label" position="stacked">Username</ion-label>
+          <ion-item  class="in">            
+            <ion-input type="text" name="username"></ion-input>
+            <ion-icon class="icon" name="person"></ion-icon>
           </ion-item>
         </div>
         
         <div class="wrap-input">
-          <ion-item>
-            <ion-label position="stacked">Password</ion-label>
-            <ion-input></ion-input>
+          <ion-label class="label" position="stacked">Password </ion-label>
+          <ion-item class="in">            
+            <ion-input type="text" name="password" ></ion-input>
+            <ion-icon class="icon" name="keypad"></ion-icon>
           </ion-item>
         </div>
 
@@ -39,7 +41,7 @@
       </form>
       
       <div class="guest">
-            <a class="ion-float-right small-text">Login as guest</a>
+            <a class="small-text">Login as guest</a>
       </div>      
 
     </div>

@@ -20,8 +20,8 @@ ion-toolbar {
 ion-content{
 
     .cont{
-        margin-top: 110px;
-        margin-bottom: 50px;
+        margin-top: 90px;
+        margin-bottom: 30px;
     }    
 
     .loginIntro{
@@ -44,13 +44,41 @@ ion-content{
         }
     }
 
-    .loginIntro{
+    .formLogin{
+
+        .in{
+            border: 2px solid #D92353;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            //z-index: -1;   
+        }
         
+        .label{
+            margin: -16px 0 0 10px;
+            padding: 0 5px 0 5px;
+            position: absolute;
+            z-index: 1;
+            background-color: red;
+            font-size: medium;            
+        }
+
+        .icon { 
+            position: absolute;
+            padding: 5px 0 0 185px; 
+            color: #D92353; 
+            min-width: 50px; 
+            text-align: center; 
+        } 
+
+        .buttonLogin{
+            padding: 25px 20px 0 20px;
+        }
     }
 
     .guest{
         a{
-            padding-top: 3px;
+            padding: 3px 20px 0 135px;
             color: #757575;
             font-weight: bold;
             font-size: 15px;
@@ -58,4 +86,3 @@ ion-content{
     }    
     
 }
-
