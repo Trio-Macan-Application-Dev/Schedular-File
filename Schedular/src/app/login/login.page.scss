@@ -45,22 +45,20 @@ ion-content{
     }
 
     .formLogin{
-
+        
         .in{
             border: 2px solid #D92353;
             border-radius: 8px;
-            margin-bottom: 5px;
-            font-weight: bold;
-            //z-index: -1;   
+            margin-bottom: 8px;
+            font-weight: bold; 
         }
         
         .label{
-            margin: -16px 0 0 10px;
+            margin: -15px 0 0 8px;
             padding: 0 5px 0 5px;
             position: absolute;
-            z-index: 1;
             background-color: red;
-            font-size: medium;            
+            font-size: medium;   
         }
 
         .icon { 
