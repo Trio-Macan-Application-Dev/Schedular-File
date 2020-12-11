@@ -1,29 +1,56 @@
-<!--<ion-header>
+<!--<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Login Schedular</ion-title>
+    <ion-title class="ion-text-center custom font">Login Schedular</ion-title>
   </ion-toolbar>
-</ion-header>
-<-- Body -->
-<ion-content>
-  <!-- Insert content here -->
+</ion-header> -->
 
-  <form>
-    <ion-item>
-      <ion-label position="floating">Username</ion-label>
-      <ion-input type="text" required></ion-input>
-    </ion-item>
-    
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" required></ion-input>
-    </ion-item>
-    
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="success" expand="block">Login</ion-button>
-        <a id="guestSign" [routerLink]="['/dashboard']" class="small-text">Login as guest</a> <!-- to be reviewed -->
-      </ion-col>
-    </ion-row>
-  </form>
+<!-- Body -->
+<ion-content fullscreen="true">
+  <!-- Insert content here -->
+  <div class="ion-padding">
+    <div class="loginIntro">
+      <img src="../assets/img/logoSchedular.png" alt="Schedular" width="100" height="100">
+      <p class="ion-text-left topText">Proceed with your</p>
+      <p class="ion-text-left textBottom">Login</p>
+    </div>
+
+    <div class="ion-padding">
+      
+      <form class="ion-padding">
+        
+        <div class="wrap-input">
+          <ion-item>
+            <ion-label position="stacked">Username</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </div>
+        
+        <div class="wrap-input">
+          <ion-item>
+            <ion-label position="stacked">Password</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </div>
+        
+        <div class="container-form-btn">
+          <ion-button type="submit" color="danger" expand="block">Sign In</ion-button>
+        </div>
+
+      </form>
+      
+      <div class="ion-padding guest">
+            <a class="ion-float-right small-text">Login as guest</a>
+      </div>      
+
+    </div>
+
+  </div>
 
 </ion-content>
+
+<!--
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <p class="ion-text-center custom-font">Schedular</p>
+  </ion-toolbar>
+</ion-footer>-->

@@ -1,7 +1,48 @@
-form{
-    padding-top: 250px;
+.custom-font{
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Roboto', sans-serif;
 }
 
-#guestSign{
-    float: right;
+ion-toolbar {
+    --background: transparent;
+
+    ion-title{
+        padding: 20px 0 46px 0;
+        font-weight: 300;
+    }
+
+    p{
+        padding: 40px 0 5px 0;
+        font-weight: 100;
+    }
 }
+
+ion-content{
+    padding-top: 50px;
+
+    .loginIntro{
+        //padding: 10px 0 5px 0;
+        p{
+            margin-top:-2px;
+        }
+        p.topText{
+            margin-bottom: -1px;
+            font-weight: normal;
+            font-size: 25px;
+        }
+
+        p.textBottom{
+            font-family: 'Bebas Neue', cursive;      
+            margin-top: -5px;     
+            font-weight: bold;
+            font-size: 45px;
+            letter-spacing: 2px;
+        }
+
+        .guest{
+            padding: -10px 0 0 0;
+        }
+    }
+    
+}
+
