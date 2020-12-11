@@ -18,7 +18,11 @@ ion-toolbar {
 }
 
 ion-content{
-    padding-top: 50px;
+
+    .cont{
+        margin-top: 110px;
+        margin-bottom: 50px;
+    }    
 
     .loginIntro{
         //padding: 10px 0 5px 0;
@@ -38,11 +42,20 @@ ion-content{
             font-size: 45px;
             letter-spacing: 2px;
         }
-
-        .guest{
-            padding: -10px 0 0 0;
-        }
     }
+
+    .loginIntro{
+        
+    }
+
+    .guest{
+        a{
+            padding-top: 3px;
+            color: #757575;
+            font-weight: bold;
+            font-size: 15px;
+        }        
+    }    
     
 }
 
