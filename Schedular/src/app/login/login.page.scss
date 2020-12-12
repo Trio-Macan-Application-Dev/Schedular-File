@@ -63,7 +63,7 @@ ion-content{
         }
 
         .icon { 
-            position: absolute;
+            position: absolute fixed;
             padding: 5px 0 0 185px; 
             color: #D92353; 
             min-width: 50px; 
@@ -77,6 +77,7 @@ ion-content{
 
     .guest{
         a{
+            position: absolute fixed;
             padding: 3px 20px 0 125px;
             color: black;
             font-weight: bold;
