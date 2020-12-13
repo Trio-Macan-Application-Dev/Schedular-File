@@ -9,17 +9,20 @@
 
       <ion-header>
         <ion-toolbar color="primary">
-          
-          <ion-item color="primary">
-            <!-- <ion-icon slot="start" name="person-outline" class="ion-padding-top"></ion-icon> -->
-            <ion-label position="stacked">Student</ion-label>
-            <ion-title class="ion-no-padding">Hasan Mubarak</ion-title>
-          </ion-item>
-          <ion-item color="primary">
-            <!-- <ion-icon slot="start" name="card-outline" class="ion-padding-top"></ion-icon> -->
-            <ion-label position="stacked">Matric No</ion-label>
-            <ion-title class="ion-no-padding">BxxECxxxx</ion-title>
-          </ion-item>
+          <!-- User Info -->
+          <div class="userInfo">
+            <div class="nameUser">
+              <!-- <ion-icon slot="start" name="person-outline" class="ion-padding-top"></ion-icon> -->
+              <ion-label id="nme" position="stacked">Student</ion-label>
+              <ion-title class="ion-no-padding">Hasan Mubarak</ion-title>
+            </div>
+            <div class="IdUser">
+              <!-- <ion-icon slot="start" name="card-outline" class="ion-padding-top"></ion-icon> -->
+              <ion-label id="mno" position="stacked">Matric No</ion-label>
+              <ion-title class="ion-no-padding">BxxECxxxx</ion-title>
+            </div>
+          </div>
+          <!-- Menu Navigation -->
           <ion-menu-toggle auto-hide="false">
             <ion-item routerLink="/dashboard" color="primary" class="ion-margin-top">
               <ion-icon slot="start" name="menu"></ion-icon>
@@ -29,7 +32,8 @@
         </ion-toolbar>
       </ion-header>
 
-      <ion-content>    
+      <ion-content>
+        <!-- Event -->
         <ion-list id="inbox-list">
           <ion-menu-toggle auto-hide="false">
             <ion-item routerLink="/event">
@@ -37,21 +41,21 @@
               <ion-label>Events List</ion-label>
             </ion-item>
           </ion-menu-toggle>
-
+          <!-- Subject -->
           <ion-menu-toggle auto-hide="false">
             <ion-item routerLink="/subject">
               <ion-icon slot="start" name="library-outline"></ion-icon>
               <ion-label>Subject</ion-label>
             </ion-item>
           </ion-menu-toggle>
-
+          <!-- Lecturer -->
           <ion-menu-toggle auto-hide="false">
             <ion-item routerLink="/lecturer">
               <ion-icon slot="start" name="people-outline"></ion-icon>
               <ion-label>Lecturer</ion-label>
             </ion-item>
           </ion-menu-toggle>
-
+          <!-- Settings -->
           <ion-menu-toggle auto-hide="false">
             <ion-item routerLink="/settings">
               <ion-icon slot="start" name="settings-outline"></ion-icon>
@@ -59,12 +63,10 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
-
       </ion-content>
 
     </ion-menu>
 
     <ion-router-outlet id="main-content"></ion-router-outlet>
-
   </ion-split-pane>
 </ion-app>
