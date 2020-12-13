@@ -6,28 +6,55 @@
 
     <ion-menu contentId="main-content" type="overlay">
 
-      <ion-content>
-
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+      <ion-header>
+        <ion-toolbar color="primary">
           
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
-              detail="false" [class.selected]="selectedIndex == i">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+          <ion-item color="primary">
+            <ion-icon slot="start" name="person-outline" class="ion-padding-top"></ion-icon>
+            <ion-label position="stacked">Student</ion-label>
+            <ion-title class="ion-no-padding">Hasan Mubarak</ion-title>
+          </ion-item>
+          <ion-item color="primary">
+            <ion-icon slot="start" name="card-outline" class="ion-padding-top"></ion-icon>
+            <ion-label position="stacked">Matric No</ion-label>
+            <ion-title class="ion-no-padding">BxxECxxxx</ion-title>
+          </ion-item>
+          <ion-item color="primary" class="ion-margin-top">
+            <ion-icon slot="start" name="menu"></ion-icon>
+            <ion-title class="ion-no-padding">Dashboard</ion-title>
+          </ion-item>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>    
+        <ion-list id="inbox-list">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item>
+              <ion-icon slot="start" name="list"></ion-icon>
+              <ion-label>Events List</ion-label>
             </ion-item>
           </ion-menu-toggle>
-        </ion-list>
 
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item>
+              <ion-icon slot="start" name="library-outline"></ion-icon>
+              <ion-label>Subject</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
 
-          <ion-item *ngFor="let label of label" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item>
+              <ion-icon slot="start" name="people-outline"></ion-icon>
+              <ion-label>Lecturer</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/settings">
+              <ion-icon slot="start" name="settings-outline"></ion-icon>
+              <ion-label>Settings</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
 
       </ion-content>
