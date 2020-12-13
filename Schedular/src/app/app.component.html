@@ -10,19 +10,21 @@
         <ion-toolbar color="primary">
           
           <ion-item color="primary">
-            <ion-icon slot="start" name="person-outline" class="ion-padding-top"></ion-icon>
+            <!-- <ion-icon slot="start" name="person-outline" class="ion-padding-top"></ion-icon> -->
             <ion-label position="stacked">Student</ion-label>
             <ion-title class="ion-no-padding">Hasan Mubarak</ion-title>
           </ion-item>
           <ion-item color="primary">
-            <ion-icon slot="start" name="card-outline" class="ion-padding-top"></ion-icon>
+            <!-- <ion-icon slot="start" name="card-outline" class="ion-padding-top"></ion-icon> -->
             <ion-label position="stacked">Matric No</ion-label>
             <ion-title class="ion-no-padding">BxxECxxxx</ion-title>
           </ion-item>
-          <ion-item color="primary" class="ion-margin-top">
-            <ion-icon slot="start" name="menu"></ion-icon>
-            <ion-title class="ion-no-padding">Dashboard</ion-title>
-          </ion-item>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item routerLink="/dashboard" color="primary" class="ion-margin-top">
+              <ion-icon slot="start" name="menu"></ion-icon>
+              <ion-title class="ion-no-padding">Dashboard</ion-title>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-toolbar>
       </ion-header>
 
