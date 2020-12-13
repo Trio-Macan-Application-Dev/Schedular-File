@@ -19,6 +19,18 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path: 'event',
+    loadChildren: () => import('./event/event.module').then( m => m.EventPageModule)
+  },
+  {
+    path: 'subject',
+    loadChildren: () => import('./subject/subject.module').then( m => m.SubjectPageModule)
+  },
+  {
+    path: 'lecturer',
+    loadChildren: () => import('./lecturer/lecturer.module').then( m => m.LecturerPageModule)
+  },
 ];
 
 @NgModule({
