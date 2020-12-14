@@ -32,7 +32,7 @@
   
   <!-- Calendar -->
   <div class="ion-padding">
-    <ion-calendar [(ngModel)]="date"
+    <ion-calendar id="eventCalendar" [(ngModel)]="date"
       (onChange)="onChange($event)"
       [type]="type"
       [format]="'YYYY-MM-DD'">
