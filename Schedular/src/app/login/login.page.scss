@@ -2,8 +2,8 @@
     font-family: 'Bebas Neue', cursive;
     font-family: 'Roboto', sans-serif;
 }
-
-ion-toolbar {
+/*
+ion-toolbar { //Header
     --background: transparent;
 
     ion-title{
@@ -15,10 +15,10 @@ ion-toolbar {
         padding: 40px 0 5px 0;
         font-weight: 100;
     }
-}
+} */
 
 ion-content{
-
+    
     .cont{
         margin-top: 90px;
         margin-bottom: 30px;
@@ -43,38 +43,40 @@ ion-content{
             letter-spacing: 2px;
         }
     }
-
+    
     .formLogin{ // Login form
-                 
+        
         .label{
-            margin: -15px 0 0 8px;
+            margin: -18px 0 0 8px;
             padding: 0 5px 0 5px;
             position: absolute;
-            background-color: red;
-            font-size: medium;
-            z-index: 1; 
+            z-index: 9999;
+            font-size: large;
+            font-weight: bold;
+            //color:#D92353;
+            background-color: white;
         }
-
+        
         .in{
             border: 2px solid #D92353;
             border-radius: 8px;
             margin-bottom: 8px;
-            font-weight: bold; 
+            font-weight: bold;            
         }
-
-        .icon { 
+        
+        .icons{ 
             position: absolute fixed;
-            padding: 5px 0 0 185px; 
-            color: #D92353; 
+            color: #D92353;            
             min-width: 50px; 
-            text-align: center; 
+            text-align: center;
+            z-index: -1;
         } 
-
+        
         .buttonLogin{
             padding: 25px 20px 0 20px;
         }
     }
-
+    
     .guest{
         a{
             position: absolute fixed;
@@ -85,5 +87,4 @@ ion-content{
             text-decoration: none;
         }        
     }    
-    
 }
