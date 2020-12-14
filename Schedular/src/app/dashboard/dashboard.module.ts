@@ -8,23 +8,12 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { DashboardPage } from './dashboard.page';
 
-// Calendar UI Module
-import { CalendarModule } from 'ion2-calendar';
-import { RouterModule } from '@angular/router';
-
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DashboardPageRoutingModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: DashboardPage
-      }
-    ]),
-    CalendarModule
+    DashboardPageRoutingModule
   ],
   declarations: [DashboardPage]
 })
