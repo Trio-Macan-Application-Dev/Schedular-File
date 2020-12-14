@@ -3,11 +3,37 @@
     <ion-buttons slot="start">
       <ion-menu-button id="main-content"></ion-menu-button>
     </ion-buttons>
-    <ion-title>Lecturer</ion-title>
+    <ion-title>LECTURER</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!-- <ion-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="ion-text-center">
+            <ion-title>YOUR LECTURER</ion-title>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div class="ion-text-center">
+            <ion-title>ALL LECTURER</ion-title>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-header> -->
 
 <ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button tab="stud-lecturer">
+        <ion-title class="ion-margin-right">MY LECTURER</ion-title>
+      </ion-tab-button>
 
+      <ion-tab-button tab="all-lecturer">
+        <ion-title>ALL LECTURER</ion-title>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
 </ion-content>
