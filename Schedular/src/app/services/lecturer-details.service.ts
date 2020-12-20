@@ -7,7 +7,10 @@ import { Lecturer } from '../models/lecturer';
   providedIn: 'root'
 })
 export class LecturerDetailsService {
-  lecturersUrl: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=pensyarah&session_id=649078419304718&sesi=2020/2021&semester=1';
+  sessionId: string = '770645472280015';
+  session: string = '2020/2021';
+  semester: string = '1';
+  lecturersUrl: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=pensyarah&session_id='+ this.sessionId +'&sesi='+ this.session +'&semester=' + this.semester;
 
   constructor(private http: HttpClient) { }
 
