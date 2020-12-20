@@ -1,16 +1,20 @@
-.perInfo{
-    background-color: red;
+.wrap-input{
     font-size: medium;
-    font-weight: bold;
+    font-weight: 600;
     #textPerInfo{
         //background-color: yellow;
         //padding: 0 90px 0 0;
-    }    
-    #icons{
-        //background-color: blue;
-        //margin: 0 0px 0 80px;
-        //position: absolute fixed;
-        display: inline-block;
-        text-align: right;
     }
+    
+    .icos{
+        //background-color: aqua;
+        margin-left: 10px;
+        float: right;
+    }
+}
+
+.titl{
+    //background-color: red;
+    color: grey;
+    padding-left: 13px;
 }
