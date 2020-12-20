@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button id="main-content"></ion-menu-button>
@@ -6,8 +6,15 @@
     <ion-title>Subject</ion-title>
   </ion-toolbar>
 </ion-header>
-
+ -->
 
 <ion-content>
-
+  <ion-list lines="full">
+    <ion-item *ngFor="let subject of subject">
+      <ion-label>
+        <h2>{{subjek.nama_subjek}}</h2>
+        <p>Kod Subjek: {{subjek.kod_subjek}} | Bil. Pelajar: {{subjek.bil_pelajar}} | Bil. Seksyen: {{subjek.bil_seksyen}} | Bil. Pelajar: {{subjek.bil_pelajar}} | Bil. Pensyarah {{subjek.bil_pensyarah}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
