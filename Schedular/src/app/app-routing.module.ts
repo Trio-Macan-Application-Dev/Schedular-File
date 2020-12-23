@@ -15,11 +15,6 @@ const routes: Routes = [
     loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   },
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
-  {
     path: 'event',
     loadChildren: () => import('./event/event.module').then( m => m.EventPageModule)
   },
@@ -30,6 +25,11 @@ const routes: Routes = [
   {
     path: 'lecturer',
     loadChildren: () => import('./lecturer/lecturer.module').then( m => m.LecturerPageModule)
+  },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
 ];
 
