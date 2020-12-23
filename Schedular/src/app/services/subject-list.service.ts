@@ -7,7 +7,7 @@ import { Subject } from '../models/subject';
   providedIn: 'root'
 })
 export class SubjectDetailsService {
-  sessionId: string = '735664525500763';
+  sessionId: string = '542869835778404';
   session: string = '2020/2021';
   semester: string = '1';
   subjectUrl: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=subjek&session_id='+ this.sessionId +'&sesi='+ this.session +'&semester=' + this.semester;
