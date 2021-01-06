@@ -1,21 +1,30 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Subject } from '../models/subject';
+import { StorageHelperService } from '../services/storage-helper.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubjectDetailsService {
+  url: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi';
 
-  sessionId: string = '212140366307725';
-  session: string = '2020/2021';
-  semester: string = '1';
-  subjectUrl: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi?entity=subjek&session_id='+ this.sessionId +'&sesi='+ this.session +'&semester=' + this.semester;
+  subjectParam = {
+    entity: 'subjek',
+    session_id: this.storageHelperService.getAdminSessionId(),
+    sesi: this.storageHelperService.getCurrentSesi(),
+    semester: this.storageHelperService.getCurrentSemester(),
+  }
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private storageHelperService: StorageHelperService,
+  ) { }
 
   getSubject(): Observable<Subject[]> {
-    return this.http.get<Subject[]>(this.subjectUrl);
+    let subjectParams = new HttpParams({fromObject: this.subjectParam});
+    
+    return this.http.get<Subject[]>(this.url, {params: subjectParams});
   }
 }

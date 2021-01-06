@@ -8,7 +8,7 @@ import { Admin } from '../models/admin';
   providedIn: 'root'
 })
 export class AdminLoginService {
-  loginUrl: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi';
+  url: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi';
 
   adminParam = {
     entity: 'authentication',
@@ -21,7 +21,7 @@ export class AdminLoginService {
   adminLogin(): Observable<Admin[]> {
     let adminParams = new HttpParams({fromObject: this.adminParam});
 
-    return this.http.get<Admin[]>(this.loginUrl, {params: adminParams})
+    return this.http.get<Admin[]>(this.url, {params: adminParams})
       .pipe(
         map(admin => {
           // console.log(admin);

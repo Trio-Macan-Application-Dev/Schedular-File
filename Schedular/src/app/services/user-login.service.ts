@@ -8,7 +8,7 @@ import { catchError, retry, tap, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserLoginService {
-  loginUrl: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi';
+  url: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi';
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +24,7 @@ export class UserLoginService {
 
     //let studentHeaders = new HttpHeaders().set('authorization','auth-token');
 
-    return this.http.get<Student>(this.loginUrl, {params: studentParams})
+    return this.http.get<Student>(this.url, {params: studentParams})
           .pipe(
             map(student => {
               localStorage.removeItem('auth_user');

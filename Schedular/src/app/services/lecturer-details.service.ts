@@ -2,27 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Lecturer } from '../models/lecturer';
+import { StorageHelperService } from '../services/storage-helper.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LecturerDetailsService {
 
-  lecturersUrl: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi';
+  url: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi';
 
-  constructor(private http: HttpClient) { }
+  // can set  the parameters using either option 1
+  lectParam = {
+    entity: 'pensyarah',
+    session_id: this.storageHelperService.getAdminSessionId(),
+    sesi: this.storageHelperService.getCurrentSesi(),
+    semester: this.storageHelperService.getCurrentSemester().toString(),
+  }
+
+  constructor(
+    private http: HttpClient,
+    private storageHelperService: StorageHelperService,
+  ) { }
 
   getLecturers(): Observable<Lecturer[]> {
-
-    // can set  the parameters using either option 1
-    let lectParam = {
-      entity: 'pensyarah',
-      session_id: '817906194052924',
-      sesi: '2020/2021',
-      semester: '1'
-    }
-
-    let lectParams = new HttpParams({fromObject:lectParam});
+    let lectParams = new HttpParams({fromObject: this.lectParam});
 
     //or use option 2
     // let lectParams = new HttpParams()
@@ -31,6 +34,6 @@ export class LecturerDetailsService {
     //     .set('sesi','2020/2021')
     //     .set('semester','1')
 
-    return this.http.get<Lecturer[]>(this.lecturersUrl, {params: lectParams} );
+    return this.http.get<Lecturer[]>(this.url, {params: lectParams} );
   }
 }
