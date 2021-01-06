@@ -1,6 +1,7 @@
-.custom-font{ // Custom font from Google font
-    font-family: 'Bebas Neue', cursive;
-    font-family: 'Roboto', sans-serif;
+.custom-font {
+  // Custom font from Google font
+  font-family: "Bebas Neue", cursive;
+  font-family: "Roboto", sans-serif;
 }
 /*
 ion-toolbar { //Header
@@ -17,74 +18,75 @@ ion-toolbar { //Header
     }
 } */
 
-ion-content{
-    
-    .cont{
-        margin-top: 90px;
-        margin-bottom: 30px;
-    }    
+ion-content {
+  .cont {
+    margin-top: 90px;
+    margin-bottom: 30px;
+  }
 
-    .loginIntro{ // Schedular logo with intro text
-        //padding: 10px 0 5px 0;
-        p{
-            margin-top:-2px;
-        }
-        p.topText{
-            margin-bottom: -1px;
-            font-weight: normal;
-            font-size: 25px;
-        }
+  .loginIntro {
+    // Schedular logo with intro text
+    //padding: 10px 0 5px 0;
+    p {
+      margin-top: -2px;
+    }
+    p.topText {
+      margin-bottom: -1px;
+      font-weight: normal;
+      font-size: 25px;
+    }
 
-        p.textBottom{
-            font-family: 'Bebas Neue', cursive;      
-            margin-top: -5px;     
-            font-weight: bold;
-            font-size: 45px;
-            letter-spacing: 2px;
-        }
+    p.textBottom {
+      font-family: "Bebas Neue", cursive;
+      margin-top: -5px;
+      font-weight: bold;
+      font-size: 45px;
+      letter-spacing: 2px;
     }
-    
-    .formLogin{ // Login form
-        
-        .label{
-            margin: -18px 0 0 8px;
-            padding: 0 5px 0 5px;
-            position: absolute;
-            z-index: 9999;
-            font-size: large;
-            font-weight: bold;
-            //color:#D92353;
-            background-color: white;
-        }
-        
-        .in{
-            border: 2px solid #D92353;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            font-weight: bold;            
-        }
-        
-        .icons{ 
-            position: absolute fixed;
-            color: #D92353;            
-            min-width: 20px; 
-            text-align: center;
-            z-index: -1;
-        } 
-        
-        .buttonLogin{
-            padding: 25px 20px 0 20px;
-        }
+  }
+
+  .formLogin {
+    // Login form
+
+    .label {
+      margin: -18px 0 0 8px;
+      padding: 0 5px 0 5px;
+      position: absolute;
+      z-index: 9999;
+      font-size: large;
+      font-weight: bold;
+      //color:#D92353;
+      background-color: white;
     }
-    
-    .guest{
-        a{
-            position: absolute fixed;
-            padding: 3px 20px 0 125px;
-            color: black;
-            font-weight: bold;
-            font-size: 15px;
-            text-decoration: none;
-        }        
-    }    
+
+    .in {
+      border: 2px solid #d92353;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .icons {
+      position: absolute fixed;
+      color: #d92353;
+      min-width: 20px;
+      text-align: center;
+      z-index: -1;
+    }
+
+    .buttonLogin {
+      padding: 25px 20px 0 20px;
+    }
+  }
+
+  .guest {
+    a {
+      position: absolute fixed;
+      padding: 3px 20px 0 125px;
+      color: black;
+      font-weight: bold;
+      font-size: 15px;
+      text-decoration: none;
+    }
+  }
 }

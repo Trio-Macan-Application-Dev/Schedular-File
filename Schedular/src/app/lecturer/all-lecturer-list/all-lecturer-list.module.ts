@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { AllLecturerListPageRoutingModule } from './all-lecturer-list-routing.module';
 
 import { AllLecturerListPage } from './all-lecturer-list.page';
+import { LecturerDetailsService } from '../../services/lecturer-details.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AllLecturerListPageRoutingModule
+    AllLecturerListPageRoutingModule,
+  ],
+  providers: [
+    LecturerDetailsService
   ],
   declarations: [AllLecturerListPage]
 })

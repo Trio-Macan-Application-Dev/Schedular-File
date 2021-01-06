@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { SubjectPageRoutingModule } from './subject-routing.module';
 
 import { SubjectPage } from './subject.page';
+import { SubjectDetailsService } from '../services/subject-list.service';
 
 @NgModule({
   imports: [
@@ -14,6 +15,9 @@ import { SubjectPage } from './subject.page';
     FormsModule,
     IonicModule,
     SubjectPageRoutingModule
+  ],
+  providers: [
+    SubjectDetailsService,
   ],
   declarations: [SubjectPage]
 })
