@@ -10,6 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AllLecturerListPageModule } from './lecturer/all-lecturer-list/all-lecturer-list.module';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,8 @@ import { AllLecturerListPageModule } from './lecturer/all-lecturer-list/all-lect
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    AllLecturerListPageModule
+    AllLecturerListPageModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
