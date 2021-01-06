@@ -12,7 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AllLecturerListPageModule } from './lecturer/all-lecturer-list/all-lecturer-list.module';
-import { IonicStorageModule } from '@ionic/storage';
+// import { IonicStorageModule } from '@ionic';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,12 +23,9 @@ import { IonicStorageModule } from '@ionic/storage';
     AppRoutingModule,
     HttpClientModule,
     AllLecturerListPageModule,
-<<<<<<< HEAD
     ReactiveFormsModule,
-    FormsModule
-=======
-    IonicStorageModule.forRoot()
->>>>>>> 37e9d754b996f465db2b2e74baa9086523aeacef
+    FormsModule,
+    // IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
