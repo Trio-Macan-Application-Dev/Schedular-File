@@ -46,6 +46,6 @@ export class StorageHelperService {
   }
 
   getEndDate() {
-    return this.sesisemester[0].tarikh_tamat;
+    return this.sesisemester[1].tarikh_tamat;
   }
 }
