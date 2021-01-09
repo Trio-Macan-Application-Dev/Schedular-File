@@ -30,6 +30,8 @@ export class AdminLoginService {
           localStorage.removeItem("auth_admin_id")
           localStorage.setItem("auth_admin", JSON.stringify(admin));
           localStorage.setItem("auth_admin_id", JSON.stringify(admin[0].session_id));
+          console.log(JSON.stringify(admin[0].session_id));
+          
           return admin;
         }),
         retry(3),

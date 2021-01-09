@@ -26,14 +26,26 @@ export class StorageHelperService {
   }
 
   getCurrentSemester() {
-    return this.sesisemester[0].semester;
+    return this.sesisemester[1].semester;
   }
 
   getCurrentSesi() {
-    return this.sesisemester[0].sesi;
+    return this.sesisemester[1].sesi;
   }
 
   getNoMatrik() {
     return this.student[0].login_name;
+  }
+
+  getFullName() {
+    return this.student[0].full_name;
+  }
+
+  getStartDate() {
+    return this.sesisemester[1].tarikh_mula;
+  }
+
+  getEndDate() {
+    return this.sesisemester[0].tarikh_tamat;
   }
 }
