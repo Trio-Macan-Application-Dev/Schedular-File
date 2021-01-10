@@ -26,17 +26,22 @@ export class AppComponent {
     }
   ];
   
+  name: String;
+  matrik: String;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private storageHelperService: StorageHelperService
   ) {
+    this.name = this.storageHelperService.getFullName();
+  this.matrik = this.storageHelperService.getNoMatrik();
     this.initializeApp();
   }
   
-  name = this.storageHelperService.getFullName();
-  matrik = this.storageHelperService.getNoMatrik();
+  //name = this.storageHelperService.getFullName();
+  //matrik = this.storageHelperService.getNoMatrik();
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
