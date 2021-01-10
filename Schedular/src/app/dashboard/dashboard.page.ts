@@ -18,6 +18,8 @@ export class DashboardPage implements OnInit {
     this.menuController.enable(true); //enable the side menu again
   }
 
+  name = this.storageHelperService.getFullName();
+  
   onClick() {
     // this.student = JSON.parse(localStorage.getItem('auth_user'));
     // this.admin = JSON.parse(localStorage.getItem('auth_admin'));
