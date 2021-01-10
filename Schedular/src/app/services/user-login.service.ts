@@ -3,6 +3,7 @@ import { Student } from '../models/student';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry, tap, map } from 'rxjs/operators';
+import { StorageHelperService } from './storage-helper.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,10 @@ import { catchError, retry, tap, map } from 'rxjs/operators';
 export class UserLoginService {
   url: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private storageHelperService: StorageHelperService,
+  ) { }
 
   login(username: string, password: string): Observable<Student> {
 
@@ -27,6 +31,7 @@ export class UserLoginService {
     return this.http.get<Student>(this.url, {params: studentParams})
           .pipe(
             map(student => {
+              // localStorage.clear();
               localStorage.removeItem('auth_user');
               localStorage.setItem('auth_user', JSON.stringify(student));
               return student;
@@ -37,9 +42,12 @@ export class UserLoginService {
   }
 
   logout() {
-    // localStorage.removeItem('auth_user');
-    // localStorage.removeItem('auth_admin');
-    localStorage.clear();
+    this.storageHelperService.UserLogin = 0;
+    localStorage.removeItem('auth_user');
+    localStorage.removeItem('auth_admin');
+    localStorage.removeItem('auth_admin_id');
+    localStorage.removeItem('sesisemester');
+    // localStorage.clear();
     // console.log(JSON.parse(localStorage.getItem('auth_user')));
     // console.log(JSON.parse(localStorage.getItem('auth_admin')));
   }

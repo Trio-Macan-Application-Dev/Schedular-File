@@ -16,20 +16,20 @@ export class SettingsPage implements OnInit {
     private storageHelperService: StorageHelperService // invoke pckge
   ) { }
 
-  // Parse value to settings.page.html
-  name = this.storageHelperService.getFullName();
-  //course = this.storageHelperService.getCourseCode();
-  matrik = this.storageHelperService.getNoMatrik();
+  // // Parse value to settings.page.html
+  // name = this.storageHelperService.getFullName();
+  // //course = this.storageHelperService.getCourseCode();
+  // matrik = this.storageHelperService.getNoMatrik();
   
-  // value sesi semester
-  sesi: String = this.storageHelperService.getCurrentSesi();
-  semester: String = this.storageHelperService.getCurrentSemester();
-  sesiSemester = this.semester + ' | ' + this.sesi ;
+  // // value sesi semester
+  // sesi: String = this.storageHelperService.getCurrentSesi();
+  // semester: String = this.storageHelperService.getCurrentSemester();
+  // sesiSemester = this.semester + ' | ' + this.sesi ;
   
-  // value sesi semester start and end
-  semStartDate: String = this.storageHelperService.getStartDate();
-  semEndDate: String = this.storageHelperService.getEndDate();
-  semDate = this.semStartDate + ' till ' + this.semEndDate;
+  // // value sesi semester start and end
+  // semStartDate: String = this.storageHelperService.getStartDate();
+  // semEndDate: String = this.storageHelperService.getEndDate();
+  // semDate = this.semStartDate + ' till ' + this.semEndDate;
 
   ngOnInit() {
   }

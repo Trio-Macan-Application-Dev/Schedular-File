@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import {StorageHelperService} from './services/storage-helper.service';
+import { StorageHelperService } from './services/storage-helper.service';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +25,10 @@ export class AppComponent {
       icon: 'settings'
     }
   ];
+
+  userLogin: number;
+  name: string;
+  matrik: string;
   
   constructor(
     private platform: Platform,
@@ -32,11 +36,26 @@ export class AppComponent {
     private statusBar: StatusBar,
     private storageHelperService: StorageHelperService
   ) {
+    // localStorage.clear();
+    this.userLogin = this.storageHelperService.UserLogin;
     this.initializeApp();
   }
-  
-  name = this.storageHelperService.getFullName();
-  matrik = this.storageHelperService.getNoMatrik();
+
+  ngOnInit() {
+    
+    if(this.userLogin == 0) {
+      this.name = "";
+      this.matrik = "";
+    }
+    else {
+      this.name = this.storageHelperService.getFullName();
+      this.matrik = this.storageHelperService.getNoMatrik();
+    }
+  }
+
+  // name = this.storageHelperService.getFullName();
+  // matrik = this.storageHelperService.getNoMatrik();
+
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
