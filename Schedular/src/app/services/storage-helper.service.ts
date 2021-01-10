@@ -10,6 +10,7 @@ export class StorageHelperService {
   private admin: Admin[];
   private student: Student[];
   private sesisemester: Sesisemester[];
+  private userLogin: number = 0;
 
   constructor() {
     this.student = JSON.parse(localStorage.getItem('auth_user'));
@@ -47,5 +48,13 @@ export class StorageHelperService {
 
   getEndDate() {
     return this.sesisemester[1].tarikh_tamat;
+  }
+
+  set UserLogin(value: number) {
+    this.userLogin = value;
+  }
+
+  get UserLogin() {
+    return this.userLogin;
   }
 }
