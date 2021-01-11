@@ -11,7 +11,7 @@ export class EventtablePage implements OnInit {
   selectedDay = new Date();
 
   calendar = {
-    mode: 'month',
+    mode: 'week',
     currentDate: this.selectedDay
   }
 

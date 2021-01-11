@@ -24,7 +24,7 @@ export class TimetablePage implements OnInit {
   }
 
   onTimeSelected(ev){
-
+    
   }
 
   onEventSelected(event){
