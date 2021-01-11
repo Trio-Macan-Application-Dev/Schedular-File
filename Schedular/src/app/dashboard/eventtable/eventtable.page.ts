@@ -31,5 +31,6 @@ export class EventtablePage implements OnInit {
   onEventSelected(event){
 
   }
+
   
 }

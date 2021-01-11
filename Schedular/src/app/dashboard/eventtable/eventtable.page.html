@@ -1,4 +1,15 @@
-<ion-content>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{ viewTitle }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button >Today</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content slot="fixed">
   <calendar 
   [eventSource]="eventSource" 
   [calendarMode]="calendar.mode" 

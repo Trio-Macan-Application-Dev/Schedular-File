@@ -6,20 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timetable.page.scss'],
 })
 export class TimetablePage implements OnInit {
-/*   eventSource = [];
+  eventSource = [];
   viewTitle: string;
   selectedDay = new Date();
 
   calendar = {
-    mode: 'month',
+    mode: 'week',
     currentDate: this.selectedDay
-  } */
+  }
   constructor() { }
 
   ngOnInit() {
   }
 
-/*   onViewTitleChanged(title){
+  onViewTitleChanged(title){
     this.viewTitle = title;
   }
 
@@ -29,6 +29,6 @@ export class TimetablePage implements OnInit {
 
   onEventSelected(event){
 
-  } */
+  }
 
 }
