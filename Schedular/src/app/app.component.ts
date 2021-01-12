@@ -52,8 +52,8 @@ export class AppComponent {
     }
   }
 
-  //name = this.storageHelperService.getFullName();
-  //matrik = this.storageHelperService.getNoMatrik();
+  // name = this.storageHelperService.getFullName();
+  // matrik = this.storageHelperService.getNoMatrik();
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
