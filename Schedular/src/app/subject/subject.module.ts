@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { SubjectPageRoutingModule } from './subject-routing.module';
 
 import { SubjectPage } from './subject.page';
+import { AllSubjectPage } from './all-subject/all-subject.page';
+import { MySubjectPage } from './my-subject/my-subject.page';
 import { SubjectDetailsService } from '../services/subject-list.service';
 
 @NgModule({
@@ -19,6 +21,10 @@ import { SubjectDetailsService } from '../services/subject-list.service';
   providers: [
     SubjectDetailsService,
   ],
-  declarations: [SubjectPage]
+  declarations: [
+    SubjectPage,
+    MySubjectPage,
+    AllSubjectPage,
+  ]
 })
 export class SubjectPageModule {}

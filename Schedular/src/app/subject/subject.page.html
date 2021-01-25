@@ -7,14 +7,19 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-  <ion-list lines="full">
-    <ion-item *ngFor="let subject of subjects">
-      <ion-label>
-        <h2>{{subject.nama_subjek}}</h2>
-        <p>Kod Subjek: {{subject.kod_subjek}} | Bil. Pelajar: {{subject.bil_pelajar}} | Bil. Seksyen: {{subject.bil_seksyen}} | Bil. Pelajar: {{subject.bil_pelajar}} | Bil. Pensyarah {{subject.bil_pensyarah}}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <!-- Tab menu -->
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button tab="my-subject">
+        <ion-title class="sub">My Subject</ion-title>
+      </ion-tab-button>
+
+      <!-- redirect to all lecturer list page -->
+      <ion-tab-button tab="all-subject">
+        <ion-title class="sub">All Subject</ion-title>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
 </ion-content>

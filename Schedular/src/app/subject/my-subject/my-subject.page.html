@@ -1,0 +1,10 @@
+<ion-content>
+  <ion-list lines="full">
+    <ion-item *ngFor="let pelajarSubjek of pelajarSubjeks">
+      <ion-label>
+        <h2 class="my-subject">{{pelajarSubjek.nama_subjek}}</h2>
+        <p>Kod Subjek: {{pelajarSubjek.kod_subjek}} | Seksyen: {{pelajarSubjek.seksyen}} | Sesi: {{pelajarSubjek.sesi}} </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

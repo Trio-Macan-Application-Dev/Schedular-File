@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Admin } from '../models/admin';
 import { Student } from '../models/student';
 import { Sesisemester } from '../models/sesisemester';
+import { PelajarSubjek } from '../models/pelajarSubjek';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,19 @@ export class StorageHelperService {
   private admin: Admin[];
   private student: Student[];
   private sesisemester: Sesisemester[];
-  private userLogin: number = 0;
+  private pelajarSubjek: PelajarSubjek[];
+  private userLogin: number;
 
   constructor() {
     this.student = JSON.parse(localStorage.getItem('auth_user'));
     this.admin = JSON.parse(localStorage.getItem('auth_admin'));
     this.sesisemester = JSON.parse(localStorage.getItem('sesisemester'));
+    this.pelajarSubjek = JSON.parse(localStorage.getItem('pelajar_subjek'));
+    this.UserLogin = 0;
+  }
+
+  getPelajarSubjek() {
+    return this.pelajarSubjek;
   }
 
   getAdminSessionId() {

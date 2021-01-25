@@ -1,16 +1,16 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <!-- <ion-toolbar color="primary">
     <ion-title>
       {{ viewTitle }}
     </ion-title>
     <ion-buttons slot="end">
       <ion-button >Today</ion-button>
     </ion-buttons>
-  </ion-toolbar>
+  </ion-toolbar> -->
 </ion-header>
 
 <ion-content slot="fixed">
-  <calendar 
+  <!-- <calendar 
   [eventSource]="eventSource" 
   [calendarMode]="calendar.mode" 
   [currentDate]="calendar.currentDate"
@@ -21,5 +21,33 @@
   endHour="20"
   step="30"
   startingDayWeek="0">
-  </calendar>
+  </calendar> -->
+  
+  <div class="scrolling-wrapper">
+    <div class="card">
+      <ion-row class="header-row">
+        <ion-col >Time</ion-col>
+        <ion-col >Mon</ion-col>
+        <ion-col >Tues</ion-col>
+        <ion-col >Wed</ion-col>
+        <ion-col >Thu</ion-col>
+        <ion-col >Fri</ion-col>
+        <ion-col >Sat</ion-col>
+        <ion-col >Sun</ion-col>
+      </ion-row>
+    
+    <!-- <div *ngFor="let time of times"> -->
+        <ion-row *ngFor="let timetable of timetables.times" class="">
+            <ion-col size="2" class="ion-text-wrap body-row"> {{timetable.time}} </ion-col>
+            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[0].course_code}}{{timetable.days[0].section}} <br> {{timetable.days[0].room}} </ion-col>
+            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[1].course_code}}{{timetable.days[1].section}} <br> {{timetable.days[1].room}} </ion-col>
+            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[2].course_code}}{{timetable.days[2].section}} <br> {{timetable.days[2].room}} </ion-col>
+            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[3].course_code}}{{timetable.days[3].section}} <br> {{timetable.days[3].room}} </ion-col>
+            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[4].course_code}}{{timetable.days[4].section}} <br> {{timetable.days[4].room}} </ion-col>
+            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[5].course_code}}{{timetable.days[5].section}} <br> {{timetable.days[5].room}} </ion-col>
+            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[6].course_code}}{{timetable.days[6].section}} <br> {{timetable.days[6].room}} </ion-col>
+        </ion-row>
+    <!-- </div> -->
+    </div>
+  </div>
 </ion-content>

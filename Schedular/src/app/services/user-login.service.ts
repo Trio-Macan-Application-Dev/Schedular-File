@@ -4,12 +4,14 @@ import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry, tap, map } from 'rxjs/operators';
 import { StorageHelperService } from './storage-helper.service';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserLoginService {
   url: string = 'http://web.fc.utm.my/ttms/web_man_webservice_json.cgi';
+  user:User = new User();
 
   constructor(
     private http: HttpClient,
@@ -44,11 +46,14 @@ export class UserLoginService {
     // localStorage.removeItem('auth_user');
     // localStorage.removeItem('auth_admin');
     localStorage.clear();
-    this.storageHelperService.UserLogin = 0;
+    this.user.userValue = 0;
+    console.log("logout" + this.user.userValue);
+    
     localStorage.removeItem('auth_user');
     localStorage.removeItem('auth_admin');
     localStorage.removeItem('auth_admin_id');
     localStorage.removeItem('sesisemester');
+    localStorage.removeItem('pelajarSubjek');
     // console.log(JSON.parse(localStorage.getItem('auth_user')));
     // console.log(JSON.parse(localStorage.getItem('auth_admin')));
   }

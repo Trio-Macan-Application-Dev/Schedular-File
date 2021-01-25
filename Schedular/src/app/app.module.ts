@@ -12,14 +12,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AllLecturerListPageModule } from './lecturer/all-lecturer-list/all-lecturer-list.module';
-import { NgCalendarModule } from 'ionic2-calendar';
+// import { NgCalendarModule } from 'ionic2-calendar';
 // import { IonicStorageModule } from '@ionic';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    NgCalendarModule,
+    // NgCalendarModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,

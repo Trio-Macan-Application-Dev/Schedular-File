@@ -6,6 +6,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
+import { TimetablePage } from './timetable/timetable.page';
+import { EventtablePage } from './eventtable/eventtable.page';
 import { DashboardPage } from './dashboard.page';
 
 @NgModule({
@@ -13,8 +15,12 @@ import { DashboardPage } from './dashboard.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    DashboardPageRoutingModule
+    DashboardPageRoutingModule,
   ],
-  declarations: [DashboardPage]
+  declarations: [
+    DashboardPage,
+    TimetablePage,
+    EventtablePage
+  ]
 })
 export class DashboardPageModule {}

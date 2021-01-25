@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, AlertController } from '@ionic/angular';
 import { FormBuilder,FormControl,FormGroup,Validators } from "@angular/forms";
+import { Router } from '@angular/router';
+import { Student } from '../models/student';
+import { AppComponent } from '../app.component';
+import { User } from '../models/user';
+import { map } from 'rxjs/operators';
+
 import { UserLoginService } from "../services/user-login.service";
 import { AdminLoginService } from "../services/admin-login.service";
 import { SesiSemesterService } from '../services/sesi-semester.service';
-import { Router } from '@angular/router';
-import { Student } from '../models/student';
-import { map } from 'rxjs/operators';
+import { SubjectDetailsService } from '../services/subject-list.service';
+import { StorageHelperService } from '../services/storage-helper.service';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +21,7 @@ import { map } from 'rxjs/operators';
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
   student: Student;
+  user:User = new User();
 
   constructor(
     private menuController: MenuController,
@@ -23,8 +29,11 @@ export class LoginPage implements OnInit {
     private userLoginService: UserLoginService,
     private adminLoginService: AdminLoginService,
     private sesiSemesterService: SesiSemesterService,
+    private subjectDetailsService: SubjectDetailsService,
     private route: Router,
     private alertController: AlertController,
+    private storageHelperService: StorageHelperService,
+    private appComponent: AppComponent,
     ) { 
         this.loginForm = this.formBuilder.group({
           username: ['', Validators.required],
@@ -52,6 +61,15 @@ export class LoginPage implements OnInit {
 
             //Get session semester details
             this.sesiSemesterService.getSesisemester().subscribe(sesisemester => {});
+
+            //Get pelajar_subjek details
+            this.subjectDetailsService.GetPelajarSubjek().subscribe(pelajarSubjek => {});
+            
+            // this.storageHelperService.UserLogin = 1;
+            this.user.userValue = 1;
+            console.log("login"+this.user.userValue);
+            this.appComponent.ngOnInit(1);
+            
 
             this.menuController.enable(true); //enable the side menu after succesful login
             this.route.navigate(['/dashboard']); //redirect to dashboard after successful login

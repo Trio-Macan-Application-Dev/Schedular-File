@@ -7,11 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { TimetablePageRoutingModule } from './timetable-routing.module';
 
 import { TimetablePage } from './timetable.page';
-import { NgCalendarModule } from 'ionic2-calendar';
+// import { NgCalendarModule } from 'ionic2-calendar';
 
 @NgModule({
   imports: [
-    NgCalendarModule,
+    // NgCalendarModule,
     CommonModule,
     FormsModule,
     IonicModule,

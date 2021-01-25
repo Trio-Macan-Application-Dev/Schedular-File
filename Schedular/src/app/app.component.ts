@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { StorageHelperService } from './services/storage-helper.service';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { StorageHelperService } from './services/storage-helper.service';
 })
 export class AppComponent {
   currentPageTitle = 'Dashboard';
+  user:User = new User();
 
   appPages = [
     {
@@ -26,7 +28,6 @@ export class AppComponent {
     }
   ];
   
-  userLogin: number;
   name: string;
   matrik: string;
 
@@ -36,17 +37,15 @@ export class AppComponent {
     private statusBar: StatusBar,
     private storageHelperService: StorageHelperService
   ) {
-    this.userLogin = this.storageHelperService.UserLogin;
     this.initializeApp();
   }
   
-  ngOnInit() {
-    
-    if(this.userLogin == 0) {
-      this.name = "";
-      this.matrik = "";
+  ngOnInit(number:number) {
+    if(this.user.userValue == 0) {
+      this.name = "aasd" + this.user.userValue;
+      this.matrik = "asd";
     }
-    else {
+    else if(this.user.userValue == number) {
       this.name = this.storageHelperService.getFullName();
       this.matrik = this.storageHelperService.getNoMatrik();
     }

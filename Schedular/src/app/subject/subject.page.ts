@@ -9,14 +9,11 @@ import { Subject } from '../models/subject';
   styleUrls: ['./subject.page.scss'],
 })
 export class SubjectPage implements OnInit {
-  subjects: Subject[];
 
-  constructor(private subjectDetailsService: SubjectDetailsService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.subjectDetailsService.getSubject().subscribe( subjects => {
-      this.subjects = subjects;
-    });
+    
   }
 
 }
