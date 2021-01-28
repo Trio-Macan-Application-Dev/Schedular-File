@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Student } from '../models/student';
 import { AppComponent } from '../app.component';
 import { User } from '../models/user';
+import { Admin } from '../models/admin';
 import { map } from 'rxjs/operators';
 
 import { UserLoginService } from "../services/user-login.service";
@@ -21,6 +22,7 @@ import { StorageHelperService } from '../services/storage-helper.service';
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
   student: Student;
+  admin: Admin[];
   user:User = new User();
 
   constructor(
@@ -55,22 +57,32 @@ export class LoginPage implements OnInit {
         student => {
           if(student != null){
             this.student = student;
-
+            // console.log(this.student[0].login_name);
+            
             //Get admin details and store in local storage
-            this.adminLoginService.adminLogin().subscribe(admin => {});
+            this.adminLoginService.adminLogin().subscribe(admin => {
+              this.admin = admin;
+              console.log(this.admin[0].session_id);
+              if(this.admin != null) {
+                this.subjectDetailsService.GetPelajarSubjek2(this.student[0].login_name).subscribe(pelajarSubjek => {});
+                console.log("awal "+this.storageHelperService.UserLogin);
+                
+                this.storageHelperService.UserLogin = 1;
+                console.log("akhir "+this.storageHelperService.UserLogin);
+                
+                this.appComponent.ShowNameAndMatrikId();
+              }
+            });
+
+            // this.subjectDetailsService.GetPelajarSubjek().subscribe(pelajarSubjek => {});
 
             //Get session semester details
             this.sesiSemesterService.getSesisemester().subscribe(sesisemester => {});
-
-            //Get pelajar_subjek details
-            this.subjectDetailsService.GetPelajarSubjek().subscribe(pelajarSubjek => {});
             
             // this.storageHelperService.UserLogin = 1;
-            this.user.userValue = 1;
-            console.log("login"+this.user.userValue);
-            this.appComponent.ngOnInit(1);
+            // this.user.userValue = 1;
+            // console.log("login"+this.user.userValue);
             
-
             this.menuController.enable(true); //enable the side menu after succesful login
             this.route.navigate(['/dashboard']); //redirect to dashboard after successful login
           } 

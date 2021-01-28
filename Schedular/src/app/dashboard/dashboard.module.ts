@@ -8,6 +8,7 @@ import { DashboardPageRoutingModule } from './dashboard-routing.module';
 
 import { TimetablePage } from './timetable/timetable.page';
 import { EventtablePage } from './eventtable/eventtable.page';
+import { EventtablePageModule } from './eventtable/eventtable.module';
 import { DashboardPage } from './dashboard.page';
 
 @NgModule({

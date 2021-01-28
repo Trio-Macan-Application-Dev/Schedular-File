@@ -26,28 +26,26 @@
   <div class="scrolling-wrapper">
     <div class="card">
       <ion-row class="header-row">
-        <ion-col >Time</ion-col>
-        <ion-col >Mon</ion-col>
-        <ion-col >Tues</ion-col>
-        <ion-col >Wed</ion-col>
-        <ion-col >Thu</ion-col>
-        <ion-col >Fri</ion-col>
-        <ion-col >Sat</ion-col>
-        <ion-col >Sun</ion-col>
+        <ion-col size="2" class="ion-text-wrap">Time</ion-col>
+        <ion-col size="1" class="ion-text-wrap">Mon</ion-col>
+        <ion-col size="1" class="ion-text-wrap">Tues</ion-col>
+        <ion-col size="1" class="ion-text-wrap">Wed</ion-col>
+        <ion-col size="1" class="ion-text-wrap">Thu</ion-col>
+        <ion-col size="1" class="ion-text-wrap">Fri</ion-col>
+        <ion-col size="1" class="ion-text-wrap">Sat</ion-col>
+        <ion-col size="1" class="ion-text-wrap">Sun</ion-col>
       </ion-row>
     
-    <!-- <div *ngFor="let time of times"> -->
-        <ion-row *ngFor="let timetable of timetables.times" class="">
-            <ion-col size="2" class="ion-text-wrap body-row"> {{timetable.time}} </ion-col>
-            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[0].course_code}}{{timetable.days[0].section}} <br> {{timetable.days[0].room}} </ion-col>
-            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[1].course_code}}{{timetable.days[1].section}} <br> {{timetable.days[1].room}} </ion-col>
-            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[2].course_code}}{{timetable.days[2].section}} <br> {{timetable.days[2].room}} </ion-col>
-            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[3].course_code}}{{timetable.days[3].section}} <br> {{timetable.days[3].room}} </ion-col>
-            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[4].course_code}}{{timetable.days[4].section}} <br> {{timetable.days[4].room}} </ion-col>
-            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[5].course_code}}{{timetable.days[5].section}} <br> {{timetable.days[5].room}} </ion-col>
-            <ion-col  class="ion-text-wrap body-row"> {{timetable.days[6].course_code}}{{timetable.days[6].section}} <br> {{timetable.days[6].room}} </ion-col>
-        </ion-row>
-    <!-- </div> -->
+      <ion-row *ngFor="let timetable of timetables.times" class="">
+        <ion-col size="2" class="ion-text-wrap body-row"> {{timetable.time}} </ion-col>
+        <ion-col size="1" class="ion-text-wrap body-row"> {{timetable.days[0].course_code}}{{timetable.days[0].section}} <br> {{timetable.days[0].room}} </ion-col>
+        <ion-col size="1" class="ion-text-wrap body-row"> {{timetable.days[1].course_code}}{{timetable.days[1].section}} <br> {{timetable.days[1].room}} </ion-col>
+        <ion-col size="1" class="ion-text-wrap body-row"> {{timetable.days[2].course_code}}{{timetable.days[2].section}} <br> {{timetable.days[2].room}} </ion-col>
+        <ion-col size="1" class="ion-text-wrap body-row"> {{timetable.days[3].course_code}}{{timetable.days[3].section}} <br> {{timetable.days[3].room}} </ion-col>
+        <ion-col size="1" class="ion-text-wrap body-row"> {{timetable.days[4].course_code}}{{timetable.days[4].section}} <br> {{timetable.days[4].room}} </ion-col>
+        <ion-col size="1" class="ion-text-wrap body-row"> {{timetable.days[5].course_code}}{{timetable.days[5].section}} <br> {{timetable.days[5].room}} </ion-col>
+        <ion-col size="1" class="ion-text-wrap body-row"> {{timetable.days[6].course_code}}{{timetable.days[6].section}} <br> {{timetable.days[6].room}} </ion-col>
+      </ion-row>
     </div>
   </div>
 </ion-content>

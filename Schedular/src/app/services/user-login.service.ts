@@ -45,15 +45,15 @@ export class UserLoginService {
   logout() {
     // localStorage.removeItem('auth_user');
     // localStorage.removeItem('auth_admin');
-    localStorage.clear();
-    this.user.userValue = 0;
-    console.log("logout" + this.user.userValue);
+    // localStorage.clear();
+    // this.user.userValue = 0;
+    // console.log("logout" + this.user.userValue);
     
     localStorage.removeItem('auth_user');
     localStorage.removeItem('auth_admin');
     localStorage.removeItem('auth_admin_id');
     localStorage.removeItem('sesisemester');
-    localStorage.removeItem('pelajarSubjek');
+    localStorage.removeItem('pelajar_subjek');
     // console.log(JSON.parse(localStorage.getItem('auth_user')));
     // console.log(JSON.parse(localStorage.getItem('auth_admin')));
   }

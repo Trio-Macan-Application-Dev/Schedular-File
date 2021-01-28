@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorageHelperService } from '../../services/storage-helper.service';
 import { SubjectDetailsService } from '../../services/subject-list.service';
 import { JadualSubjek } from '../../models/jadualSubjek';
+import { PelajarSubjek } from '../../models/pelajarSubjek';
 
 @Component({
   selector: 'app-eventtable',
@@ -47,11 +48,21 @@ export class EventtablePage implements OnInit {
 
     this.day_list = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
-    this.course_list = this.storageHelperService.getPelajarSubjek();
+    
+    // this.subjectDetailsService.GetPelajarSubjek().subscribe(pelajarSubjek => {
+      // if(pelajarSubjek != null) {
+        
+        this.course_list = this.storageHelperService.getPelajarSubjek();
+        // this.course_list = pelajarSubjek;
+        
+        console.log(this.course_list);
+    //   }
+    // });
 
     this.sesi = this.storageHelperService.getCurrentSesi();
     this.semester = this.storageHelperService.getCurrentSemester();
 
+    
   }
 
   ngOnInit() {
@@ -60,48 +71,47 @@ export class EventtablePage implements OnInit {
         time.days[i] = {"name": this.day_list[i], "course_code": " ", "section": " ", "room": " "}
       }
     });
-
-    // this.day_list.forEach(day => {
-    //   console.log(day);
-    // });
-
+    
+    console.log(this.storageHelperService.getAdminSessionId());
+    
     this.GetCurrentCourse();
-
-    // console.log(this.course_list);
-    // console.log(this.sesi);
-    // console.log(this.semester);
+    
   }
 
   GetCurrentCourse() {
-    this.course_list.forEach(course => {
-      if(course.sesi == this.sesi && course.semester == this.semester) {
-        // console.log(course.kod_subjek + "-" + course.seksyen);
+    // this.course_list = this.storageHelperService.getPelajarSubjek();
 
-        this.subjectDetailsService.GetJadualSubjek(course.kod_subjek, course.seksyen, this.sesi, this.semester)
-          .subscribe(
-            ttlist_info => {
-              this.ttlist_info = ttlist_info;
+    if(this.course_list != null) {
+      this.course_list.forEach(course => {
+        if(course.sesi == this.sesi && course.semester == this.semester) {
+          // console.log(course.kod_subjek + "-" + course.seksyen);
 
-              if(this.ttlist_info[0].kod_subjek != null) {
-                this.ttlist_info.forEach(item => {
-                  // console.log("Course code: " + item.kod_subjek);
-                  // console.log("Time: " + item.masa);
-                  // console.log("Day: " + item.hari);
-                  // console.log("Ruang: " + item.ruang.nama_ruang_singkatan);
-                  
+          this.subjectDetailsService.GetJadualSubjek(course.kod_subjek, course.seksyen, this.sesi, this.semester)
+            .subscribe(
+              ttlist_info => {
+                this.ttlist_info = ttlist_info;
 
-                  let idx_time = item.masa - 1;
-                  let idx_day = item.hari - 1;
+                if(this.ttlist_info[0].kod_subjek != null) {
+                  this.ttlist_info.forEach(item => {
+                    console.log("Course code: " + item.kod_subjek);
+                    console.log("Time: " + item.masa);
+                    console.log("Day: " + item.hari);
+                    console.log("Ruang: " + item.ruang.nama_ruang_singkatan);
+                    
 
-                  this.timetables.times[idx_time].days[idx_day].course_code = item.kod_subjek;
-                  this.timetables.times[idx_time].days[idx_day].section = "-" + item.seksyen;
-                  this.timetables.times[idx_time].days[idx_day].room = item.ruang.nama_ruang_singkatan;
-                });
+                    let idx_time = item.masa - 1;
+                    let idx_day = item.hari - 1;
+
+                    this.timetables.times[idx_time].days[idx_day].course_code = item.kod_subjek;
+                    this.timetables.times[idx_time].days[idx_day].section = "-" + item.seksyen;
+                    this.timetables.times[idx_time].days[idx_day].room = item.ruang.nama_ruang_singkatan;
+                  });
+                }
               }
-            }
-          )
-      }
-    });
+            )
+        }
+      });
+    }
   }
 
   onViewTitleChanged(title){

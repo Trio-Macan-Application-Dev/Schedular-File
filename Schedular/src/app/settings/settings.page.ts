@@ -18,7 +18,7 @@ export class SettingsPage implements OnInit {
 
   // Parse value to settings.page.html
   name = this.storageHelperService.getFullName();
-  //course = this.storageHelperService.getCourseCode();
+  course = this.storageHelperService.getPelajarSubjekKursus();
   matrik = this.storageHelperService.getNoMatrik();
   
   // value sesi semester

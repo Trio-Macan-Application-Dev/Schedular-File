@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EventtablePageRoutingModule } from './eventtable-routing.module';
 
 import { EventtablePage } from './eventtable.page';
+import { DashboardPageModule } from '../dashboard.module';
 // import { NgCalendarModule } from 'ionic2-calendar';
 
 @NgModule({
@@ -15,7 +16,7 @@ import { EventtablePage } from './eventtable.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    EventtablePageRoutingModule
+    EventtablePageRoutingModule,
   ],
   declarations: [EventtablePage]
 })

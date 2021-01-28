@@ -40,14 +40,22 @@ export class AppComponent {
     this.initializeApp();
   }
   
-  ngOnInit(number:number) {
-    if(this.user.userValue == 0) {
-      this.name = "aasd" + this.user.userValue;
-      this.matrik = "asd";
+  ngOnInit() {
+  }
+
+  ShowNameAndMatrikId() {
+    console.log("ShowNameAndMatrikId1");
+    console.log(this.storageHelperService.UserLogin);
+    
+    if(this.storageHelperService.UserLogin == 0) {
+      this.name = "test";
+      this.matrik = "test";
+      console.log("ShowNameAndMatrikId2");
     }
-    else if(this.user.userValue == number) {
+    if(this.storageHelperService.UserLogin == 1) {
       this.name = this.storageHelperService.getFullName();
       this.matrik = this.storageHelperService.getNoMatrik();
+      console.log("ShowNameAndMatrikId3");
     }
   }
 

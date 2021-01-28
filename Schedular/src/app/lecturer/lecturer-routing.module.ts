@@ -30,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/lecturer/stud-lecturer',
+        redirectTo: '/lecturer/all-lecturer',
         pathMatch: 'full'
       }
     ]

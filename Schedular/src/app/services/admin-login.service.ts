@@ -26,8 +26,6 @@ export class AdminLoginService {
         map(admin => {
           // console.log(admin);
           // console.log(admin[0].session_id);
-          localStorage.removeItem("auth_admin");
-          localStorage.removeItem("auth_admin_id")
           localStorage.setItem("auth_admin", JSON.stringify(admin));
           localStorage.setItem("auth_admin_id", JSON.stringify(admin[0].session_id));
           console.log(JSON.stringify(admin[0].session_id));
