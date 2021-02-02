@@ -19,8 +19,15 @@
           </ion-item>
           <div class="wrap-input_pI">
             <p>Name: <b> {{name | titlecase}} </b></p>
-            <p>Course: <b> {{course | uppercase}} </b> </p>
-            <p>Matric No: <b> {{matrik | uppercase}} </b></p>
+            <div *ngIf="userType === 'student' else lecturerView">
+              <p>Course: <b> {{course | uppercase}} </b> </p>
+              <p>Matric No: <b> {{matrik | uppercase}} </b></p>
+            </div>
+            <!-- <div *ngIf="userType === 'lecturer'"> -->
+            <ng-template #lecturerView>
+              <p>Staff No: <b> {{noPekerja}} </b></p>
+            </ng-template>
+            <!-- </div> -->
             <p>Sesi | Semester: <b> {{sesiSemester}} </b></p>
             <p>Sem Date: <b> {{semDate}} </b></p>
           </div>

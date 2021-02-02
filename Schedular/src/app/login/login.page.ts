@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, AlertController } from '@ionic/angular';
-import { FormBuilder,FormControl,FormGroup,Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
-import { Student } from '../models/student';
-import { AppComponent } from '../app.component';
 import { User } from '../models/user';
+import { AppComponent } from '../app.component';
 import { Admin } from '../models/admin';
-import { map } from 'rxjs/operators';
 
 import { UserLoginService } from "../services/user-login.service";
 import { AdminLoginService } from "../services/admin-login.service";
@@ -20,10 +18,9 @@ import { StorageHelperService } from '../services/storage-helper.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  loginForm: FormGroup;
-  student: Student;
-  admin: Admin[];
-  user:User = new User();
+  protected loginForm: FormGroup;
+  protected student: User;
+  protected admin: Admin[];
 
   constructor(
     private menuController: MenuController,
@@ -42,46 +39,51 @@ export class LoginPage implements OnInit {
           password: ['', Validators.required]
         });
       }
-  // Variable
   
   ngOnInit() {
     this.menuController.enable(false); //disable side menu in login page
-    // this.route.navigate(['/dashboard']);
   }
 
   get userLogin() {return this.loginForm.controls;}
 
   onSubmit() {
-    this.userLoginService.login(this.userLogin.username.value, this.userLogin.password.value)
+    this.userLoginService.StudentLogin(this.userLogin.username.value, this.userLogin.password.value)
       .subscribe(
         student => {
           if(student != null){
             this.student = student;
-            // console.log(this.student[0].login_name);
+            console.log("No pekerja: "+this.student[0].no_pekerja);
+            console.log("Nama: "+this.student[0].full_name);
             
+
             //Get admin details and store in local storage
             this.adminLoginService.adminLogin().subscribe(admin => {
               this.admin = admin;
               console.log(this.admin[0].session_id);
               if(this.admin != null) {
-                this.subjectDetailsService.GetPelajarSubjek2(this.student[0].login_name).subscribe(pelajarSubjek => {});
-                console.log("awal "+this.storageHelperService.UserLogin);
+                if(this.student[0].no_pekerja != null){
+                  console.log("np ada");
+                  this.subjectDetailsService.GetPensyarahSubjek().subscribe(() => {})
+                  console.log("awal "+this.storageHelperService.userType);
                 
-                this.storageHelperService.UserLogin = 1;
-                console.log("akhir "+this.storageHelperService.UserLogin);
+                  this.storageHelperService.userType = "lecturer";
+                  console.log("akhir "+this.storageHelperService.userType);
+                }
+                else {
+                  console.log("np tak de");
+                  this.subjectDetailsService.GetPelajarSubjek().subscribe(() => {});
+                  console.log("awal "+this.storageHelperService.userType);
                 
-                this.appComponent.ShowNameAndMatrikId();
+                  this.storageHelperService.userType = "student";
+                  console.log("akhir "+this.storageHelperService.userType);
+                }
+
+                this.appComponent.showUserDetails();
               }
             });
 
-            // this.subjectDetailsService.GetPelajarSubjek().subscribe(pelajarSubjek => {});
-
             //Get session semester details
-            this.sesiSemesterService.getSesisemester().subscribe(sesisemester => {});
-            
-            // this.storageHelperService.UserLogin = 1;
-            // this.user.userValue = 1;
-            // console.log("login"+this.user.userValue);
+            this.sesiSemesterService.getSesisemester().subscribe(() => {});
             
             this.menuController.enable(true); //enable the side menu after succesful login
             this.route.navigate(['/dashboard']); //redirect to dashboard after successful login
@@ -92,11 +94,9 @@ export class LoginPage implements OnInit {
           }
         },
         error => {
-          console.log('error but in login page');
+          console.log(error);
         }
       );
-    
-    //console.log(localStorage.getItem('auth_user'));
   }
 
   async loginALert() {

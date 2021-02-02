@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { LecturerDetailsService } from '../../services/lecturer-details.service';
 import { Observable } from 'rxjs';
-import { Lecturer } from '../../models/lecturer';
+import { LecturerDetails } from '../../models/lecturerDetails';
 
 @Component({
   selector: 'app-all-lecturer-list',
@@ -10,7 +10,7 @@ import { Lecturer } from '../../models/lecturer';
   styleUrls: ['./all-lecturer-list.page.scss'],
 })
 export class AllLecturerListPage implements OnInit {
-  lecturers: Lecturer[];
+  lecturers: LecturerDetails[];
 
   constructor(private lecturerDetailsService: LecturerDetailsService) { }
 

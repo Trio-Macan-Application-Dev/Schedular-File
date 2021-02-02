@@ -11,16 +11,34 @@
         <ion-toolbar color="primary">
           <!-- User Info -->
           <div class="userInfo">
-            <div class="nameUser">
-              <!-- <ion-icon slot="start" name="person-outline" class="ion-padding-top"></ion-icon> -->
-              <ion-label id="nme" position="stacked">Student</ion-label>
-              <ion-title class="ion-no-padding ion-text-wrap">{{name | titlecase}}</ion-title>
+            <div *ngIf="userType === 'student' else lecturerView">
+              <!-- student view -->
+              <div class="nameUser">
+                <!-- <ion-icon slot="start" name="person-outline" class="ion-padding-top"></ion-icon> -->
+                <ion-label id="nme" position="stacked">Student</ion-label>
+                <ion-title class="ion-no-padding ion-text-wrap">{{name | titlecase}}</ion-title>
+              </div>
+              <div class="IdUser">
+                <!-- <ion-icon slot="start" name="card-outline" class="ion-padding-top"></ion-icon> -->
+                <ion-label id="mno" position="stacked">Matric No</ion-label>
+                <ion-title class="ion-no-padding">{{matrik | uppercase}}</ion-title>
+              </div>
             </div>
-            <div class="IdUser">
-              <!-- <ion-icon slot="start" name="card-outline" class="ion-padding-top"></ion-icon> -->
-              <ion-label id="mno" position="stacked">Matric No</ion-label>
-              <ion-title class="ion-no-padding">{{matrik | uppercase}}</ion-title>
-            </div>
+            <!-- lecturer view -->
+            <!-- <div *ngIf="userType === 'lecturer'"> -->
+              <ng-template #lecturerView>
+              <div class="nameUser">
+                <!-- <ion-icon slot="start" name="person-outline" class="ion-padding-top"></ion-icon> -->
+                <ion-label id="nme" position="stacked">Lecturer</ion-label>
+                <ion-title class="ion-no-padding ion-text-wrap">{{name | titlecase}}</ion-title>
+              </div>
+              <div class="IdUser">
+                <!-- <ion-icon slot="start" name="card-outline" class="ion-padding-top"></ion-icon> -->
+                <ion-label id="mno" position="stacked">Staff No</ion-label>
+                <ion-title class="ion-no-padding">{{noPekerja}}</ion-title>
+              </div>
+            </ng-template>
+            <!-- </div> -->
           </div>
           <!-- Menu Navigation -->
           <ion-menu-toggle auto-hide="false">

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Lecturer } from '../models/lecturer';
+import { LecturerDetails } from '../models/lecturerDetails';
 import { StorageHelperService } from '../services/storage-helper.service';
 
 @Injectable({
@@ -24,7 +24,7 @@ export class LecturerDetailsService {
     private storageHelperService: StorageHelperService,
   ) { }
 
-  getLecturers(): Observable<Lecturer[]> {
+  getLecturers(): Observable<LecturerDetails[]> {
     let lectParams = new HttpParams({fromObject: this.lectParam});
 
     //or use option 2
@@ -34,6 +34,6 @@ export class LecturerDetailsService {
     //     .set('sesi','2020/2021')
     //     .set('semester','1')
 
-    return this.http.get<Lecturer[]>(this.url, {params: lectParams} );
+    return this.http.get<LecturerDetails[]>(this.url, {params: lectParams} );
   }
 }

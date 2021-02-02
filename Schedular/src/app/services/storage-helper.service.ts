@@ -1,26 +1,32 @@
 import { Injectable } from '@angular/core';
 import { Admin } from '../models/admin';
-import { Student } from '../models/student';
+import { User } from '../models/user';
 import { Sesisemester } from '../models/sesisemester';
 import { PelajarSubjek } from '../models/pelajarSubjek';
+import { PensyarahSubjek } from '../models/pensyarahSubjek';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageHelperService {
   private admin: Admin[];
-  private student: Student[];
+  private user: User[];
   private sesisemester: Sesisemester[];
   private pelajarSubjek: PelajarSubjek[];
-  private userLogin: number;
+  private pensyarahSubjek: PensyarahSubjek[];
+  private _userType: string;
 
   constructor() {
-    this.UserLogin = 1;
   }
 
   getPelajarSubjek() {
     this.pelajarSubjek = JSON.parse(localStorage.getItem('pelajar_subjek'));
     return this.pelajarSubjek;
+  }
+
+  getPensyarahSubjek() {
+    this.pensyarahSubjek = JSON.parse(localStorage.getItem('pensyarah_subjek'));
+    return this.pensyarahSubjek;
   }
 
   getPelajarSubjekKursus() {
@@ -34,8 +40,8 @@ export class StorageHelperService {
   }
 
   getUserSessionId() {
-    this.student = JSON.parse(localStorage.getItem('auth_user'));
-    return this.student[0].session_id;
+    this.user = JSON.parse(localStorage.getItem('auth_user'));
+    return this.user[0].session_id;
   }
 
   getCurrentSemester() {
@@ -49,13 +55,18 @@ export class StorageHelperService {
   }
 
   getNoMatrik() {
-    this.student = JSON.parse(localStorage.getItem('auth_user'));
-    return this.student[0].login_name;
+    this.user = JSON.parse(localStorage.getItem('auth_user'));
+    return this.user[0].login_name;
+  }
+
+  getNoPekerja() {
+    this.user = JSON.parse(localStorage.getItem('auth_user'));
+    return this.user[0].no_pekerja;
   }
 
   getFullName() {
-    this.student = JSON.parse(localStorage.getItem('auth_user'));
-    return this.student[0].full_name;
+    this.user = JSON.parse(localStorage.getItem('auth_user'));
+    return this.user[0].full_name;
   }
 
   getStartDate() {
@@ -68,11 +79,11 @@ export class StorageHelperService {
     return this.sesisemester[1].tarikh_tamat;
   }
 
-  set UserLogin(value: number) {
-    this.userLogin = value;
+  set userType(userType: string) {
+    this._userType = userType;
   }
 
-  get UserLogin() {
-    return this.userLogin;
+  get userType() {
+    return this._userType;
   }
 }

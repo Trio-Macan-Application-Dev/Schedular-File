@@ -1,7 +1,7 @@
-export interface Lecturer {
-  nama: string;
+export interface Lecturer{
+  login_name: string;
+  session_id: string;
+  full_name: string;
+  description: string;
   no_pekerja: string;
-  bil_subjek: number;
-  bil_seksyen: number;
-  bil_pelajar: number;
 }

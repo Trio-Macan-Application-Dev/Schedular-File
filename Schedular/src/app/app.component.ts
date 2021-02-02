@@ -4,7 +4,6 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { StorageHelperService } from './services/storage-helper.service';
-import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +12,6 @@ import { User } from './models/user';
 })
 export class AppComponent {
   currentPageTitle = 'Dashboard';
-  user:User = new User();
 
   appPages = [
     {
@@ -30,6 +28,8 @@ export class AppComponent {
   
   name: string;
   matrik: string;
+  noPekerja: String
+  userType: string;
 
   constructor(
     private platform: Platform,
@@ -43,24 +43,20 @@ export class AppComponent {
   ngOnInit() {
   }
 
-  ShowNameAndMatrikId() {
+  showUserDetails() {
+    this.name = this.storageHelperService.getFullName();
+    this.userType = this.storageHelperService.userType;
     console.log("ShowNameAndMatrikId1");
-    console.log(this.storageHelperService.UserLogin);
+    console.log(this.storageHelperService.userType);
     
-    if(this.storageHelperService.UserLogin == 0) {
-      this.name = "test";
-      this.matrik = "test";
-      console.log("ShowNameAndMatrikId2");
-    }
-    if(this.storageHelperService.UserLogin == 1) {
-      this.name = this.storageHelperService.getFullName();
+    if(this.userType === "student") {
       this.matrik = this.storageHelperService.getNoMatrik();
-      console.log("ShowNameAndMatrikId3");
+    }
+    else if(this.userType === "lecturer") {
+      this.noPekerja = this.storageHelperService.getNoPekerja();
     }
   }
 
-  // name = this.storageHelperService.getFullName();
-  // matrik = this.storageHelperService.getNoMatrik();
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();

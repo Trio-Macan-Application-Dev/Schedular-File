@@ -1,10 +1,26 @@
 <ion-content>
-  <ion-list lines="full">
-    <ion-item *ngFor="let pelajarSubjek of pelajarSubjeks">
-      <ion-label>
-        <h2 class="my-subject">{{pelajarSubjek.nama_subjek}}</h2>
-        <p>Kod Subjek: {{pelajarSubjek.kod_subjek}} | Seksyen: {{pelajarSubjek.seksyen}} | Sesi: {{pelajarSubjek.sesi}} </p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <div *ngIf="userType === 'student'; else lecturerView">
+    <ion-list lines="full">
+      <ion-item *ngFor="let pelajarSubjek of pelajarSubjeks">
+        <ion-label>
+          <h2 class="my-subject">{{pelajarSubjek.nama_subjek}}</h2>
+          <p>Kod Subjek: {{pelajarSubjek.kod_subjek}} | Seksyen: {{pelajarSubjek.seksyen}} | Sesi: {{pelajarSubjek.sesi}} </p>
+          <p>Kod Kursus: {{pelajarSubjek.kod_kursus}} | Tahun Kursus: {{pelajarSubjek.tahun_kursus}} | Semester: {{pelajarSubjek.semester}} </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>`
+  <!-- <div *ngIf="userType === 'lecturer'"> -->
+  <ng-template #lecturerView>
+    <ion-list lines="full">
+      <ion-item *ngFor="let pensyarahSubjek of pensyarahSubjeks">
+        <ion-label>
+          <h2 class="my-subject">{{pensyarahSubjek.nama_subjek}}</h2>
+          <p>Kod Subjek: {{pensyarahSubjek.kod_subjek}} | Seksyen: {{pensyarahSubjek.seksyen}} | Sesi: {{pensyarahSubjek.sesi}} </p>
+          <p>Bil. Pelajar: {{pensyarahSubjek.bil_pelajar}} | Kod Fakulti: {{pensyarahSubjek.kod_fakulti}} | Semester: {{pensyarahSubjek.semester}} </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+  <!-- </div> -->
 </ion-content>

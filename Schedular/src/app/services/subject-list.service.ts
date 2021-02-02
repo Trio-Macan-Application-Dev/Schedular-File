@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, JsonpClientBackend } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { Subject } from '../models/subject';
-import { Admin } from '../models/admin';
-import { Sesisemester } from '../models/sesisemester'
 import { PelajarSubjek } from '../models/pelajarSubjek';
+import { PensyarahSubjek } from '../models/pensyarahSubjek';
 import { JadualSubjek } from '../models/jadualSubjek';
 import { StorageHelperService } from '../services/storage-helper.service';
 
@@ -54,20 +53,20 @@ export class SubjectDetailsService {
       )
   }
 
-  GetPelajarSubjek2(no_matrik: string): Observable<PelajarSubjek[]> {
-    let param = {
-      entity: 'pelajar_subjek',
-      no_matrik: no_matrik,
+  GetPensyarahSubjek(): Observable<PensyarahSubjek[]> {
+    let pensyarahSubjekParam = {
+      entity: "pensyarah_subjek",
+      no_pekerja: this.storageHelperService.getNoPekerja(),
     }
 
-    let pelajarSubjekParams = new HttpParams({fromObject: param});
+    let pensyarahSubjekParams = new HttpParams({fromObject: pensyarahSubjekParam});
 
-    return this.http.get<PelajarSubjek[]>(this.url, {params: pelajarSubjekParams})
+    return this.http.get<PensyarahSubjek[]>(this.url, {params: pensyarahSubjekParams})
       .pipe(
-        map(pelajarSubjek => {
-          localStorage.removeItem('pelajar_subjek');
-          localStorage.setItem('pelajar_subjek', JSON.stringify(pelajarSubjek));
-          return pelajarSubjek;
+        map(pensyarahSubjek => {
+          localStorage.removeItem('pensyarah_subjek');
+          localStorage.setItem('pensyarah_subjek', JSON.stringify(pensyarahSubjek));
+          return pensyarahSubjek;
         })
       )
   }

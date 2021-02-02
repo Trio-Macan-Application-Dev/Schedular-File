@@ -4,6 +4,7 @@ import { StorageHelperService } from '../../services/storage-helper.service';
 import { SubjectDetailsService } from '../../services/subject-list.service';
 import { JadualSubjek } from '../../models/jadualSubjek';
 import { PelajarSubjek } from '../../models/pelajarSubjek';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-eventtable',
@@ -26,8 +27,14 @@ export class EventtablePage implements OnInit {
   private sesi: string;
   private semester: string;
   private day_list: string[];
+  private userType: string;
 
-  constructor(private storageHelperService: StorageHelperService, private subjectDetailsService: SubjectDetailsService) { 
+  constructor(
+    private storageHelperService: StorageHelperService,
+    private subjectDetailsService: SubjectDetailsService,
+    private alertController: AlertController,
+    ) 
+  { 
     this.timetables = { "times": [
       {"time": "7:00 AM - 7:50 AM", "days": []},
       {"time": "8:00 AM - 8:50 AM", "days": []},
@@ -48,38 +55,29 @@ export class EventtablePage implements OnInit {
 
     this.day_list = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 
-    
-    // this.subjectDetailsService.GetPelajarSubjek().subscribe(pelajarSubjek => {
-      // if(pelajarSubjek != null) {
-        
-        this.course_list = this.storageHelperService.getPelajarSubjek();
-        // this.course_list = pelajarSubjek;
-        
-        console.log(this.course_list);
-    //   }
-    // });
-
     this.sesi = this.storageHelperService.getCurrentSesi();
     this.semester = this.storageHelperService.getCurrentSemester();
-
-    
+    this.userType = this.storageHelperService.userType;
   }
 
   ngOnInit() {
+    this.SetTimetableDays();
+    this.GetCurrentCourse();
+  }
+
+  SetTimetableDays() {
     this.timetables.times.forEach(time => {
       for(let i = 0;i < 7;i++) {
         time.days[i] = {"name": this.day_list[i], "course_code": " ", "section": " ", "room": " "}
       }
     });
-    
-    console.log(this.storageHelperService.getAdminSessionId());
-    
-    this.GetCurrentCourse();
-    
   }
 
   GetCurrentCourse() {
-    // this.course_list = this.storageHelperService.getPelajarSubjek();
+    if(this.userType === "student")
+      this.course_list = this.storageHelperService.getPelajarSubjek();
+    else
+      this.course_list = this.storageHelperService.getPensyarahSubjek();
 
     if(this.course_list != null) {
       this.course_list.forEach(course => {
@@ -112,6 +110,19 @@ export class EventtablePage implements OnInit {
         }
       });
     }
+    else {
+      this.loginALert();
+    }
+  }
+
+  async loginALert() {
+    const alert = await this.alertController.create({
+      header: 'Warning',
+      message: 'Failed to fetch Timetable',
+      buttons: ['Dismiss'],
+    });
+
+    await alert.present();
   }
 
   onViewTitleChanged(title){
