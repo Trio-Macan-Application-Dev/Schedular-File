@@ -64,18 +64,23 @@ export class LoginPage implements OnInit {
                 if(this.student[0].no_pekerja != null){
                   console.log("np ada");
                   this.subjectDetailsService.GetPensyarahSubjek().subscribe(() => {})
-                  console.log("awal "+this.storageHelperService.userType);
+                  // console.log("awal "+this.storageHelperService.userType);
                 
-                  this.storageHelperService.userType = "lecturer";
-                  console.log("akhir "+this.storageHelperService.userType);
+                  // this.storageHelperService.userType = "lecturer";
+                  sessionStorage.setItem('userType', 'lecturer');
+                  console.log('session'+sessionStorage.getItem('userType'));
+                  
+                  // console.log("akhir "+this.storageHelperService.userType);
                 }
                 else {
                   console.log("np tak de");
                   this.subjectDetailsService.GetPelajarSubjek().subscribe(() => {});
-                  console.log("awal "+this.storageHelperService.userType);
+                  // console.log("awal "+this.storageHelperService.userType);
                 
-                  this.storageHelperService.userType = "student";
-                  console.log("akhir "+this.storageHelperService.userType);
+                  // this.storageHelperService.userType = "student";
+                  sessionStorage.setItem('userType', 'student');
+                  console.log('session'+sessionStorage.getItem('userType'));
+                  // console.log("akhir "+this.storageHelperService.userType);
                 }
 
                 this.appComponent.showUserDetails();

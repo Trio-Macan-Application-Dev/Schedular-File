@@ -16,7 +16,7 @@ export class MySubjectPage implements OnInit {
   protected userType: string;
 
   constructor(private subjectDetailsService: SubjectDetailsService, private storageHelperService: StorageHelperService) { 
-    this.userType = this.storageHelperService.userType;
+    this.userType = sessionStorage.getItem('userType');
   }
 
   ngOnInit() {

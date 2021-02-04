@@ -14,7 +14,7 @@ export class StorageHelperService {
   private sesisemester: Sesisemester[];
   private pelajarSubjek: PelajarSubjek[];
   private pensyarahSubjek: PensyarahSubjek[];
-  private _userType: string;
+  // private _userType: string;
 
   constructor() {
   }
@@ -79,11 +79,11 @@ export class StorageHelperService {
     return this.sesisemester[1].tarikh_tamat;
   }
 
-  set userType(userType: string) {
-    this._userType = userType;
-  }
+  // set userType(userType: string) {
+  //   this._userType = userType;
+  // }
 
-  get userType() {
-    return this._userType;
-  }
+  // get userType() {
+  //   return this._userType;
+  // }
 }

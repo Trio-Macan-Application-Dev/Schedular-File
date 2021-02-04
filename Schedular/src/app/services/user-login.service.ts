@@ -50,6 +50,7 @@ export class UserLoginService {
     localStorage.removeItem('sesisemester');
     localStorage.removeItem('pelajar_subjek');
     localStorage.removeItem('pensyarah_subjek');
+    sessionStorage.removeItem('userType');
   }
 
   private handleError(error: HttpErrorResponse) {

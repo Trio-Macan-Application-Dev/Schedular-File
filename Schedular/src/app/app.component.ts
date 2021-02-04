@@ -41,18 +41,21 @@ export class AppComponent {
   }
   
   ngOnInit() {
+    this.showUserDetails();
   }
 
   showUserDetails() {
-    this.name = this.storageHelperService.getFullName();
-    this.userType = this.storageHelperService.userType;
+    
+    this.userType = sessionStorage.getItem('userType');
     console.log("ShowNameAndMatrikId1");
-    console.log(this.storageHelperService.userType);
+    console.log(this.userType);
     
     if(this.userType === "student") {
+      this.name = this.storageHelperService.getFullName();
       this.matrik = this.storageHelperService.getNoMatrik();
     }
     else if(this.userType === "lecturer") {
+      this.name = this.storageHelperService.getFullName();
       this.noPekerja = this.storageHelperService.getNoPekerja();
     }
   }

@@ -27,7 +27,7 @@ export class SettingsPage implements OnInit {
     private storageHelperService: StorageHelperService // invoke pckge
   ) 
   {
-    this.userType = this.storageHelperService.userType;
+    this.userType = sessionStorage.getItem('userType');
     this.SetUserDetails();
   }
 

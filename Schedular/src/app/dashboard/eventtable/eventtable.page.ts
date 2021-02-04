@@ -57,7 +57,7 @@ export class EventtablePage implements OnInit {
 
     this.sesi = this.storageHelperService.getCurrentSesi();
     this.semester = this.storageHelperService.getCurrentSemester();
-    this.userType = this.storageHelperService.userType;
+    this.userType = sessionStorage.getItem('userType');
   }
 
   ngOnInit() {
